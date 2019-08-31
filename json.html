@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON TUTORIAL</title>
+</head>
+<body style="height: 2500px; margin: 0px 350px;">
+	<h3>Show Object Names</h3>
+<p id="show-data"></p><hr>
+
+<h3>Now Show All Objects From the Person Object</h3>
+<p id="showAllObjects"></p><hr>
+<h3><i><small style="color:red;">DELETE</small></i> Data from JSON Object <small style="font-weight: normal; color: #00f;">Currently not working!</small></h3>
+<p id="delete"></p><hr>
+
+
+
+<h3>Arrays as JSON Objects</h3>
+<p>In JSON, array values must be of type string, number, object, array, boolean or null. <br> In JavaScript, array values can be all of the above, plus any other valid JavaScript expression, including functions, dates, and undefined.
+
+
+<br><br><b>Arrays can be values of an object property: <br>
+	<br>Example:
+
+</b>
+</p>
+<p id="jsonArray"></p>
+
+
+
+
+	<script>
+		var person = {
+		 name: "John", 
+		 age: 31, 
+		 city: "New York",
+		 phone: "802-324-2715",
+		 email: "fidow@gmail.com",
+		 country: "USA",
+		 ethnicity: "African" 
+
+		};
+/*
+=============================
+
+	Looping through the Objects in JSON
+
+========================
+
+*/
+
+
+for(showData in person){
+
+//show the objec names using FOR LOOP
+	document.getElementById("show-data").innerHTML += showData + "<br/>";
+	
+}
+
+
+
+
+
+//Now, display all Data from the object using FOR-IN LOOP and (bracket) notation to access the property values:
+
+for(allData in person){
+
+	var showNow = document.getElementById("showAllObjects");
+	showNow.innerHTML += person[allData] +"<br/>";
+	
+}
+
+
+
+/*
+	==================
+	   Delete Object Properties
+	================== 
+*/
+
+
+//Example: delete myObj.cars.car2;
+for(deleteData in person){
+
+	document.getElementById("delete").innerHTML += person[deleteData] +"<br/>";
+	
+}
+
+//delete.person.email[deleteData];
+
+
+
+
+//Arrays as JSON Objects and nested
+var myObj, i, x = "";
+
+myObj = {
+  "name":"John",
+  "age":30,
+  		"cars":[ "Ford", "BMW", "Fiat", "Nissan" ]
+};
+
+
+
+//Accessing Array Values
+//You access the array values by using the index number:
+
+//Looping Through an Array
+
+
+// for(i = 0; i < people.cars.length; i++){
+// people += people.cars[i];
+// document.getElementById('jsonArray').innerHTML += people.cars[i];
+// }
+
+
+for (i in myObj.cars) {
+  x += myObj.cars[i] + "<br>";
+}
+document.getElementById("jsonArray").innerHTML = x;
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
